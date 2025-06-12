@@ -22,7 +22,6 @@ const Home = () => {
                     Create Recipe
                 </Link>
             </div>
-            {/* How it works section */}
             <div className="flex flex-col md:flex-row gap-8 mb-10 w-full overflow-x-auto">
                 <div className="bg-gray-800 rounded-lg p-6 shadow-md flex-1">
                     <span className="text-3xl mb-2 block">🔎</span>

@@ -28,7 +28,7 @@ const Create = () => {
                         className="block border-b outline-0 mt-10 py-8 w-[300px] bg-transparent text-white"
                         {...register("image", { required: "Image URL is required" })}
                         type="url"
-                        placeholder="Enter image URL"
+                        placeholder="Enter Image URL"
                     />
                     {errors.image && (
                         <div className="flex items-center gap-1 py-2">
@@ -49,7 +49,7 @@ const Create = () => {
                             <small className="text-red-300">{errors.image.message}</small>
                         </div>
                     )}
-                    <textarea maxLength={50} className="block border-b outline-0 mt-10 resize-none w-[300px] bg-transparent text-white" {...register("title", { required: "Recipe title is required" })} placeholder="Recipe title"></textarea>
+                    <textarea maxLength={50} className="block border-b outline-0 mt-10 resize-none w-[300px] bg-transparent text-white" {...register("title", { required: "Recipe title is required" })} placeholder="Recipe Title"></textarea>
                     {errors.title && (
                         <div className="flex items-center gap-1 py-2">
                             <svg
@@ -89,7 +89,7 @@ const Create = () => {
                             <small className="text-red-300">{errors.description.message}</small>
                         </div>
                     )}
-                    <textarea maxLength={300} className="block border-b outline-0 mt-10 w-[300px] bg-transparent text-white" {...register("ingredients", { required: "Ingredients are required" })} placeholder="Ingredients"></textarea>
+                    <textarea maxLength={300} className="block border-b outline-0 mt-10 w-[300px] bg-transparent text-white" {...register("ingredients", { required: "Ingredients are required" })} placeholder="Ingredients (comma-separated)"></textarea>
                     {errors.ingredients && (
                         <div className="flex items-center gap-1 py-2">
                             <svg
@@ -110,7 +110,7 @@ const Create = () => {
                         </div>
                     )}
                     <textarea maxLength={50} className="block border-b outline-0 mt-10 resize-none w-[300px] bg-transparent text-white" {...register("chef")} placeholder="Chef's Name (optional)"></textarea>
-                    <textarea {...register("preparation", { required: "Preparation steps are required" })} placeholder="Enter step-by-step preparation instructions" className="block border-b outline-0 mt-10 w-[300px] bg-transparent text-white"></textarea>
+                    <textarea {...register("preparation", { required: "Preparation steps are required" })} placeholder="Preparations (comma-separated)" className="block border-b outline-0 mt-10 w-[300px] bg-transparent text-white"></textarea>
                     {errors.preparation && (
                         <div className="flex items-center gap-1 py-2">
                             <svg
@@ -140,6 +140,7 @@ const Create = () => {
                         <option value="chinese">Chinese</option>
                         <option value="mexican">Mexican</option>
                         <option value="french">French</option>
+                        <option value="dessert">Dessert</option>
                         <option value="japanese">Japanese</option>
                         <option value="american">American</option>
                         <option value="thai">Thai</option>
