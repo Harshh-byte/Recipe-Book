@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useParams, Link } from "react-router-dom";
-import RecipeContext from "../context/RecipeContext";
+import { RecipeContext } from "../context/RecipeContext";
 
 const SingleRecipe = () => {
   const { id } = useParams();
