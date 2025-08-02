@@ -1,16 +1,36 @@
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
+
+const links = [
+  { path: "/", label: "Home" },
+  { path: "/recipes", label: "Recipes" },
+  { path: "/about", label: "About" },
+  { path: "/create-recipe", label: "Create Recipe" },
+];
 
 const Navbar = () => {
-    return (
-        <div className="flex items-center justify-center gap-x-10 text-sm mb-10">
-            <NavLink className={({ isActive }) => isActive ? "text-red-300" : ""} to="/">Home</NavLink>
-            <NavLink className={({ isActive }) => isActive ? "text-red-300" : ""} to="/recipes">Recipes</NavLink>
-            <NavLink className={({ isActive }) => isActive ? "text-red-300" : ""} to="/about">About</NavLink>
-            <NavLink className={({ isActive }) =>
-                `rounded py-2 px-4 ${isActive ? "bg-[#3ABAB4] text-gray-900 font-semibold" : "bg-gray-900 text-gray-200"
+  return (
+    <nav className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-sm font-medium mb-10">
+      {links.map(({ path, label }) => (
+        <NavLink
+          key={path}
+          to={path}
+          className={({ isActive }) =>
+            path === "/create-recipe"
+              ? `rounded px-4 py-2 transition ${
+                  isActive
+                    ? "bg-[#3ABAB4] text-gray-900 font-semibold"
+                    : "bg-gray-900 text-gray-200"
                 }`
-            } to="/create-recipe">Create Recipes</NavLink>
-        </div>
-    )
-}
-export default Navbar
+              : isActive
+              ? "text-[#3ABAB4]"
+              : "text-gray-300 hover:text-[#3ABAB4] transition"
+          }
+        >
+          {label}
+        </NavLink>
+      ))}
+    </nav>
+  );
+};
+
+export default Navbar;

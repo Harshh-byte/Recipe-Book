@@ -1,32 +1,35 @@
 const About = () => {
-    return (
-        <div className="flex flex-col items-center justify-center min-h-[80vh] text-center bg-gradient-to-b from-gray-700 via-gray-800 to-gray-900 px-4">
-            <h1 className="text-4xl font-extrabold mb-4 text-[#3ABAB4]">About Recipe Book</h1>
-            <p className="text-lg text-gray-200 max-w-2xl mb-6">
-                Recipe Book is your digital kitchen companion! Our mission is to help food lovers discover, create, and share amazing recipes from all over the world. Whether you’re a beginner or a seasoned chef, you’ll find inspiration and community here.
-            </p>
-            <div className="flex flex-col md:flex-row gap-8 mb-10 w-full max-w-3xl">
-                <div className="bg-gray-800 rounded-lg p-6 shadow-md flex-1">
-                    <span className="text-3xl mb-2 block">🌎</span>
-                    <h3 className="text-xl font-bold text-[#3ABAB4] mb-2">Explore</h3>
-                    <p className="text-gray-300">Browse a variety of cuisines and dishes from around the globe.</p>
-                </div>
-                <div className="bg-gray-800 rounded-lg p-6 shadow-md flex-1">
-                    <span className="text-3xl mb-2 block">📝</span>
-                    <h3 className="text-xl font-bold text-[#3ABAB4] mb-2">Organize</h3>
-                    <p className="text-gray-300">Save, organize, and revisit your favorite recipes anytime.</p>
-                </div>
-                <div className="bg-gray-800 rounded-lg p-6 shadow-md flex-1">
-                    <span className="text-3xl mb-2 block">👩‍🍳</span>
-                    <h3 className="text-xl font-bold text-[#3ABAB4] mb-2">Share</h3>
-                    <p className="text-gray-300">Share your own culinary creations and connect with food lovers.</p>
-                </div>
-            </div>
-            <p className="text-gray-400">
-                Built with <span className="text-[#3ABAB4] font-semibold">React</span> and a passion for food.
-            </p>
+  return (
+    <div className="max-w-4xl mx-auto px-4 py-10 text-center">
+      <h1 className="text-4xl font-bold text-[#3ABAB4] mb-4">About Recipe Book</h1>
+      <p className="text-gray-300 mb-6 text-lg leading-relaxed">
+        Recipe Book is your digital kitchen companion — a place to discover, create, and share
+        culinary inspiration. Whether you’re a home cook experimenting with new ingredients or
+        a seasoned chef perfecting your classics, our platform is designed to help you organize
+        and showcase your recipes beautifully.
+      </p>
+      <div className="grid gap-6 sm:grid-cols-2 text-left mt-8">
+        <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h2 className="text-2xl text-[#3ABAB4] font-semibold mb-2">Our Mission</h2>
+          <p className="text-gray-400">
+            To empower creators and food lovers by providing a space to document and share recipes with simplicity and style.
+          </p>
         </div>
-    );
+        <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h2 className="text-2xl text-[#3ABAB4] font-semibold mb-2">What You Can Do</h2>
+          <ul className="list-disc ml-5 text-gray-400 space-y-1">
+            <li>Browse diverse recipes from around the world</li>
+            <li>Create and save your own culinary creations</li>
+            <li>Share your recipes with others</li>
+            <li>Stay inspired in your cooking journey</li>
+          </ul>
+        </div>
+      </div>
+      <p className="text-sm text-gray-500 mt-10">
+        Built with 💚 using React & Tailwind CSS
+      </p>
+    </div>
+  );
 };
 
 export default About;

@@ -1,20 +1,23 @@
-import About from "@/pages/About";
-import Create from "@/pages/Create";
+import { Routes, Route } from "react-router-dom";
+
 import Home from "@/pages/Home";
-import PageNotFound from "@/pages/PageNotFound";
+import About from "@/pages/About";
 import Recipes from "@/pages/Recipes";
+import Create from "@/pages/Create";
 import SingleRecipe from "@/pages/SingleRecipe";
-import { Route, Routes } from "react-router-dom"
+import PageNotFound from "@/pages/PageNotFound";
 
 const MainRoutes = () => {
-    return <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/recipes" element={<Recipes />} />
-        <Route path="/recipes/details/:id" element={<SingleRecipe />} />
-        <Route path="/create-recipe" element={<Create />} />
-        <Route path="*" element={<PageNotFound />} />
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/recipes" element={<Recipes />} />
+      <Route path="/recipes/details/:id" element={<SingleRecipe />} />
+      <Route path="/create-recipe" element={<Create />} />
+      <Route path="/about" element={<About />} />
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
-}
+  );
+};
 
-export default MainRoutes
+export default MainRoutes;
