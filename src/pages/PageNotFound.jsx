@@ -1,15 +1,19 @@
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const PageNotFound = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-[70vh] text-center">
-      <h1 className="text-7xl font-extrabold text-[#3ABAB4] drop-shadow mb-4">404</h1>
-      <p className="text-xl text-gray-300 mb-6">Oops! The page you're looking for doesn't exist.</p>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-4">
+      <h1 className="text-9xl font-extrabold text-indigo-600 dark:text-indigo-400">404</h1>
+      <h2 className="text-3xl sm:text-4xl font-bold mt-4 mb-2">Page Not Found</h2>
+      <p className="text-md text-center max-w-md">
+        We couldn't find what you were looking for. Please try again.
+      </p>
       <Link
         to="/"
-        className="px-6 py-2 bg-[#3ABAB4] text-gray-900 font-semibold rounded hover:bg-[#319e9a] transition"
+        className="mt-8 px-6 py-3 text-lg font-semibold text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition-colors duration-300 shadow-md"
       >
-        Back to Home
+        Go to Homepage
       </Link>
     </div>
   );
