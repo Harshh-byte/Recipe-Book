@@ -5,7 +5,6 @@ const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    // Replace this with your actual recipe-fetching logic or local storage
     const storedRecipes = JSON.parse(localStorage.getItem("recipes")) || [];
     setRecipes(storedRecipes);
   }, []);
