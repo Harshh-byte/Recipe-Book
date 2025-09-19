@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
 const Create = () => {
-  const { data, setdata } = useContext(RecipeContext);
+  const { recipes, setRecipes } = useContext(RecipeContext);
   const [form, setForm] = useState({
     title: "",
     chef: "",
@@ -31,10 +31,10 @@ const Create = () => {
       preparation: form.preparation.split(".").filter(Boolean).map((s) => s.trim() + "."),
     };
 
-    const updatedData = [...data, newRecipe];
-    setdata(updatedData);
-    localStorage.setItem("recipes", JSON.stringify(updatedData));
-    navigate("/recipes");
+  const updatedRecipes = [...recipes, newRecipe];
+  setRecipes(updatedRecipes);
+  localStorage.setItem("recipes", JSON.stringify(updatedRecipes));
+  navigate("/recipes");
   };
 
   return (

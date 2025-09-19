@@ -1,13 +1,9 @@
 import RecipeCard from "@/components/RecipeCard";
-import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { RecipeContext } from "@/context/RecipeContext";
 
 const Recipes = () => {
-  const [recipes, setRecipes] = useState([]);
-
-  useEffect(() => {
-    const storedRecipes = JSON.parse(localStorage.getItem("recipes")) || [];
-    setRecipes(storedRecipes);
-  }, []);
+  const { recipes } = useContext(RecipeContext);
 
   return (
     <div className="text-center">

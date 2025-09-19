@@ -6,7 +6,7 @@ const SingleRecipe = () => {
   const { id } = useParams();
   const { recipes } = useContext(RecipeContext);
 
-  const recipe = recipes.find((r) => r.id === id);
+  const recipe = recipes.find((r) => r.id == id);
 
   if (!recipe) {
     return (
@@ -20,6 +20,17 @@ const SingleRecipe = () => {
       </div>
     );
   }
+
+  // Ensure ingredients and preparation are arrays
+  const ingredientsArr = Array.isArray(recipe.ingredients)
+    ? recipe.ingredients
+    : recipe.ingredients.split(",").map((i) => i.trim());
+  const preparationArr = Array.isArray(recipe.preparation)
+    ? recipe.preparation
+    : recipe.preparation
+        .split(".")
+        .filter(Boolean)
+        .map((s) => s.trim() + ".");
 
   return (
     <div className="max-w-4xl mx-auto p-6 mt-10 bg-white rounded-2xl shadow-lg">
@@ -40,18 +51,22 @@ const SingleRecipe = () => {
       <p className="text-gray-700 mb-6">{recipe.description}</p>
 
       <div className="mb-6">
-        <h2 className="text-xl font-semibold text-gray-800 mb-2">Ingredients</h2>
+        <h2 className="text-xl font-semibold text-gray-800 mb-2">
+          Ingredients
+        </h2>
         <ul className="list-disc list-inside text-gray-700">
-          {recipe.ingredients.map((item, index) => (
+          {ingredientsArr.map((item, index) => (
             <li key={index}>{item}</li>
           ))}
         </ul>
       </div>
 
       <div>
-        <h2 className="text-xl font-semibold text-gray-800 mb-2">Preparation</h2>
+        <h2 className="text-xl font-semibold text-gray-800 mb-2">
+          Preparation
+        </h2>
         <ol className="list-decimal list-inside text-gray-700 space-y-1">
-          {recipe.preparation.map((step, index) => (
+          {preparationArr.map((step, index) => (
             <li key={index}>{step}</li>
           ))}
         </ol>
