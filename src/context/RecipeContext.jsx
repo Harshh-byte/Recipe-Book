@@ -258,8 +258,8 @@ const RecipeProvider = ({ children }) => {
       ...storedRecipes.filter(
         (userRecipe) =>
           !defaultRecipes.some(
-            (def) => String(def.id) === String(userRecipe.id)
-          )
+            (def) => String(def.id) === String(userRecipe.id),
+          ),
       ),
     ];
 

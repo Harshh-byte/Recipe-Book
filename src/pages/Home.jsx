@@ -1,71 +1,87 @@
 import { Link } from "react-router-dom";
 
 const Home = () => {
-    return (
-        <div className="flex flex-col items-center justify-center min-h-[80vh] text-center bg-gradient-to-b from-gray-700 via-gray-800 to-gray-900 px-4 py-10">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-[#3ABAB4] drop-shadow-md mb-2">
-                Welcome to Recipe Book!
-            </h1>
-
-            <h2 className="text-lg md:text-xl text-gray-300 mb-6 font-mono">
-                Your digital kitchen for inspiration & sharing
-            </h2>
-
-            <p className="text-base md:text-lg text-gray-200 max-w-2xl mb-8 leading-relaxed">
-                Discover, create, and share your favorite recipes from around the world.
-                Whether you're a home cook or a pro chef, Recipe Book helps you explore new cuisines,
-                save your creations, and inspire others.
+  return (
+    <section className="route-enter space-y-8 pb-8">
+      <div className="surface-panel rounded-[2rem] p-6 md:p-10">
+        <div className="grid items-center gap-8 md:grid-cols-2">
+          <div>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.32em] text-[#b37350]">
+              Home Kitchen Hub
             </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                <Link
-                    to="/recipes"
-                    className="px-6 py-2 bg-[#3ABAB4] text-gray-900 font-semibold rounded shadow hover:bg-[#319e9a] transition"
-                >
-                    Browse Recipes
-                </Link>
-                <Link
-                    to="/create-recipe"
-                    className="px-6 py-2 bg-gray-900 text-white font-semibold rounded shadow hover:bg-gray-800 transition"
-                >
-                    Create Recipe
-                </Link>
+            <h2 className="mb-4 text-4xl font-semibold leading-tight text-[#4f2a1b] md:text-5xl">
+              Plan your next meal like a creator, not a collector.
+            </h2>
+            <p className="mb-6 max-w-lg text-[#7a5240]">
+              Keep everything from comfort classics to experimental plates in
+              one place. Browse inspiration, write your own recipes, and make
+              your personal cookbook feel alive.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                to="/recipes"
+                className="rounded-full bg-[#c86843] px-6 py-3 text-sm font-semibold text-white hover:bg-[#a95334]"
+              >
+                Browse Recipes
+              </Link>
+              <Link
+                to="/create-recipe"
+                className="rounded-full border border-[#ddb79f] bg-white/80 px-6 py-3 text-sm font-semibold text-[#764634] hover:border-[#c48666]"
+              >
+                Create Recipe
+              </Link>
             </div>
+          </div>
 
-            {/* Feature Highlights */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl mb-12">
-                <div className="bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-lg transition">
-                    <span className="text-3xl mb-2 block">🔎</span>
-                    <h3 className="text-xl font-bold text-[#3ABAB4] mb-2">Browse</h3>
-                    <p className="text-gray-300 text-sm">
-                        Explore recipes by cuisine, chef, or ingredients.
-                    </p>
-                </div>
-                <div className="bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-lg transition">
-                    <span className="text-3xl mb-2 block">✍️</span>
-                    <h3 className="text-xl font-bold text-[#3ABAB4] mb-2">Create</h3>
-                    <p className="text-gray-300 text-sm">
-                        Add your own recipes and organize your digital kitchen.
-                    </p>
-                </div>
-                <div className="bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-lg transition">
-                    <span className="text-3xl mb-2 block">🌟</span>
-                    <h3 className="text-xl font-bold text-[#3ABAB4] mb-2">Share</h3>
-                    <p className="text-gray-300 text-sm">
-                        Share culinary creations and inspire fellow food lovers.
-                    </p>
-                </div>
-            </div>
-
-            {/* Featured Image */}
+          <div className="relative">
             <img
-                src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80"
-                alt="Delicious food"
-                className="rounded-xl shadow-xl w-full max-w-lg object-cover"
+              src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80"
+              alt="Prepared food on a table"
+              className="h-[330px] w-full rounded-[1.5rem] object-cover shadow-xl"
             />
+            <div className="absolute -bottom-5 left-5 rounded-2xl border border-[#f0d4be] bg-[#fff9f1]/95 px-4 py-3 shadow-lg">
+              <p className="text-xs uppercase tracking-[0.2em] text-[#ab6f4f]">
+                Featured Mood
+              </p>
+              <p className="text-sm font-semibold text-[#5d3322]">
+                Weekend comfort dinner lineup
+              </p>
+            </div>
+          </div>
         </div>
-    );
+      </div>
+
+      <div className="grid gap-4 md:grid-cols-3">
+        {[
+          {
+            title: "Discover",
+            detail:
+              "Browse cuisine ideas by mood, chef, or ingredients in seconds.",
+          },
+          {
+            title: "Design",
+            detail:
+              "Write your own recipes with clear steps that are easy to revisit.",
+          },
+          {
+            title: "Delight",
+            detail:
+              "Turn saved recipes into a visual cookbook you actually use.",
+          },
+        ].map((feature) => (
+          <article
+            key={feature.title}
+            className="surface-panel rounded-3xl p-5 hover:-translate-y-1"
+          >
+            <h3 className="mb-2 text-2xl font-semibold text-[#603524]">
+              {feature.title}
+            </h3>
+            <p className="text-sm text-[#805745]">{feature.detail}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
 };
 
 export default Home;

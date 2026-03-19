@@ -9,21 +9,17 @@ const links = [
 
 const Navbar = () => {
   return (
-    <nav className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-sm font-medium mb-10">
+    <nav className="flex flex-wrap items-center justify-center gap-2 text-sm font-medium md:gap-3">
       {links.map(({ path, label }) => (
         <NavLink
           key={path}
           to={path}
           className={({ isActive }) =>
-            path === "/create-recipe"
-              ? `rounded px-4 py-2 transition ${
-                  isActive
-                    ? "bg-[#3ABAB4] text-gray-900 font-semibold"
-                    : "bg-gray-900 text-gray-200"
-                }`
-              : isActive
-              ? "text-[#3ABAB4]"
-              : "text-gray-300 hover:text-[#3ABAB4] transition"
+            `rounded-full border px-4 py-2 text-xs tracking-wide md:px-5 md:text-sm ${
+              isActive
+                ? "border-[#cc7b56] bg-[#cc7b56] text-white shadow-md"
+                : "border-[#efcfb9] bg-white/70 text-[#7f4f3b] hover:border-[#d9916f] hover:text-[#6a3f2d]"
+            }`
           }
         >
           {label}

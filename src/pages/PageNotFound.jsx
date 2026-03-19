@@ -1,21 +1,29 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const PageNotFound = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-4">
-      <h1 className="text-9xl font-extrabold text-indigo-600 dark:text-indigo-400">404</h1>
-      <h2 className="text-3xl sm:text-4xl font-bold mt-4 mb-2">Page Not Found</h2>
-      <p className="text-md text-center max-w-md">
-        We couldn't find what you were looking for. Please try again.
-      </p>
-      <Link
-        to="/"
-        className="mt-8 px-6 py-3 text-lg font-semibold text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition-colors duration-300 shadow-md"
-      >
-        Go to Homepage
-      </Link>
-    </div>
+    <section className="route-enter pb-8">
+      <div className="surface-panel mx-auto flex min-h-[50vh] max-w-3xl flex-col items-center justify-center rounded-[2rem] p-8 text-center md:p-12">
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#b2724f]">
+          Error
+        </p>
+        <h2 className="mt-3 text-7xl font-bold text-[#5f3323] md:text-8xl">
+          404
+        </h2>
+        <h3 className="mt-4 text-3xl font-semibold text-[#5c311f]">
+          Page Not Found
+        </h3>
+        <p className="mt-3 max-w-md text-[#8b5c48]">
+          The page you requested does not exist or may have been moved.
+        </p>
+        <Link
+          to="/"
+          className="mt-8 rounded-full bg-[#c96843] px-7 py-3 text-sm font-semibold text-white hover:bg-[#a55334]"
+        >
+          Return Home
+        </Link>
+      </div>
+    </section>
   );
 };
 

@@ -6,81 +6,110 @@ const SingleRecipe = () => {
   const { id } = useParams();
   const { recipes } = useContext(RecipeContext);
 
-  const recipe = recipes.find((r) => r.id == id);
+  const recipe = recipes.find((r) => String(r.id) === String(id));
 
   if (!recipe) {
     return (
-      <div className="text-center mt-20 text-xl text-gray-600">
-        Recipe not found.
-        <div className="mt-4">
-          <Link to="/recipes" className="text-blue-500 underline">
+      <section className="route-enter surface-panel mx-auto mt-10 max-w-3xl rounded-3xl p-10 text-center">
+        <h2 className="text-3xl font-semibold text-[#5f3524]">
+          Recipe not found
+        </h2>
+        <p className="mt-3 text-[#8e5f49]">
+          This recipe may have been removed or the link is invalid.
+        </p>
+        <div className="mt-6">
+          <Link
+            to="/recipes"
+            className="rounded-full bg-[#c96843] px-6 py-3 text-sm font-semibold text-white hover:bg-[#a55335]"
+          >
             Back to Recipes
           </Link>
         </div>
-      </div>
+      </section>
     );
   }
 
-  // Ensure ingredients and preparation are arrays
   const ingredientsArr = Array.isArray(recipe.ingredients)
     ? recipe.ingredients
-    : recipe.ingredients.split(",").map((i) => i.trim());
+    : String(recipe.ingredients || "")
+        .split(",")
+        .map((item) => item.trim())
+        .filter(Boolean);
+
   const preparationArr = Array.isArray(recipe.preparation)
     ? recipe.preparation
-    : recipe.preparation
-        .split(".")
+    : String(recipe.preparation || "")
+        .split(/[.\n]/)
         .filter(Boolean)
-        .map((s) => s.trim() + ".");
+        .map((step) => step.trim());
 
   return (
-    <div className="max-w-4xl mx-auto p-6 mt-10 bg-white rounded-2xl shadow-lg">
-      <h1 className="text-3xl font-bold text-gray-800 mb-4">{recipe.title}</h1>
-      <img
-        src={recipe.image}
-        alt={recipe.title}
-        className="w-full h-72 object-cover rounded-xl mb-6"
-      />
-      <div className="mb-4">
-        <p className="text-gray-600">
-          <strong>Chef:</strong> {recipe.chef}
-        </p>
-        <p className="text-gray-600">
-          <strong>Cuisine:</strong> {recipe.cuisine}
-        </p>
+    <section className="route-enter space-y-6 pb-8">
+      <div className="surface-panel overflow-hidden rounded-[2rem]">
+        <img
+          src={recipe.image}
+          alt={recipe.title}
+          className="h-72 w-full object-cover md:h-[24rem]"
+        />
+        <div className="space-y-4 p-6 md:p-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#b1704e]">
+            {recipe.cuisine}
+          </p>
+          <h2 className="text-4xl font-semibold text-[#51291a]">
+            {recipe.title}
+          </h2>
+          <p className="text-[#7a5241]">Created by {recipe.chef}</p>
+          <p className="leading-relaxed text-[#734d3c]">{recipe.description}</p>
+        </div>
       </div>
-      <p className="text-gray-700 mb-6">{recipe.description}</p>
 
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold text-gray-800 mb-2">
-          Ingredients
-        </h2>
-        <ul className="list-disc list-inside text-gray-700">
-          {ingredientsArr.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
+      <div className="grid gap-6 md:grid-cols-2">
+        <article className="surface-panel rounded-3xl p-6">
+          <h3 className="mb-3 text-2xl font-semibold text-[#5c321f]">
+            Ingredients
+          </h3>
+          <ul className="space-y-2 text-sm text-[#7c5342]">
+            {ingredientsArr.length === 0 && <li>No ingredients listed.</li>}
+            {ingredientsArr.map((item, index) => (
+              <li
+                key={index}
+                className="rounded-xl border border-[#f0dac8] bg-white/70 px-3 py-2"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </article>
+
+        <article className="surface-panel rounded-3xl p-6">
+          <h3 className="mb-3 text-2xl font-semibold text-[#5c321f]">
+            Preparation
+          </h3>
+          <ol className="space-y-2 text-sm text-[#7c5342]">
+            {preparationArr.length === 0 && (
+              <li>No preparation steps listed.</li>
+            )}
+            {preparationArr.map((step, index) => (
+              <li
+                key={index}
+                className="rounded-xl border border-[#f0dac8] bg-white/70 px-3 py-2"
+              >
+                {index + 1}. {step}
+              </li>
+            ))}
+          </ol>
+        </article>
       </div>
 
       <div>
-        <h2 className="text-xl font-semibold text-gray-800 mb-2">
-          Preparation
-        </h2>
-        <ol className="list-decimal list-inside text-gray-700 space-y-1">
-          {preparationArr.map((step, index) => (
-            <li key={index}>{step}</li>
-          ))}
-        </ol>
-      </div>
-
-      <div className="mt-8">
         <Link
           to="/recipes"
-          className="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+          className="inline-block rounded-full border border-[#ddb89f] bg-white/85 px-6 py-3 text-sm font-semibold text-[#724434] hover:border-[#c98868]"
         >
           Back to Recipes
         </Link>
       </div>
-    </div>
+    </section>
   );
 };
 

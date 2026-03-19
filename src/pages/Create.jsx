@@ -27,49 +27,133 @@ const Create = () => {
     const newRecipe = {
       ...form,
       id: uuidv4(),
-      ingredients: form.ingredients.split(",").map((i) => i.trim()),
-      preparation: form.preparation.split(".").filter(Boolean).map((s) => s.trim() + "."),
+      ingredients: form.ingredients
+        .split(",")
+        .map((i) => i.trim())
+        .filter(Boolean),
+      preparation: form.preparation
+        .split(/[.\n]/)
+        .map((s) => s.trim())
+        .filter(Boolean),
     };
 
-  const updatedRecipes = [...recipes, newRecipe];
-  setRecipes(updatedRecipes);
-  localStorage.setItem("recipes", JSON.stringify(updatedRecipes));
-  navigate("/recipes");
+    const updatedRecipes = [...recipes, newRecipe];
+    setRecipes(updatedRecipes);
+    localStorage.setItem("recipes", JSON.stringify(updatedRecipes));
+    navigate("/recipes");
   };
 
+  const fields = [
+    {
+      label: "Title",
+      name: "title",
+      type: "text",
+      placeholder: "Spicy Garlic Noodles",
+    },
+    {
+      label: "Chef Name",
+      name: "chef",
+      type: "text",
+      placeholder: "Chef Amira",
+    },
+    { label: "Cuisine", name: "cuisine", type: "text", placeholder: "Asian" },
+    {
+      label: "Image URL",
+      name: "image",
+      type: "url",
+      placeholder: "https://images.unsplash.com/...",
+    },
+  ];
+
   return (
-    <div className="max-w-3xl mx-auto p-4">
-      <h1 className="text-3xl font-bold text-center mb-6 text-[#3ABAB4]">Create New Recipe</h1>
-      <form onSubmit={handleSubmit} className="grid gap-4">
-        {[
-          { label: "Title", name: "title" },
-          { label: "Chef Name", name: "chef" },
-          { label: "Cuisine", name: "cuisine" },
-          { label: "Description", name: "description" },
-          { label: "Ingredients (comma separated)", name: "ingredients" },
-          { label: "Preparation Steps (end each with a period)", name: "preparation" },
-          { label: "Image URL", name: "image" },
-        ].map(({ label, name }) => (
-          <div key={name}>
-            <label className="block font-medium text-gray-300 mb-1">{label}</label>
-            <input
-              type="text"
-              name={name}
-              value={form[name]}
+    <section className="route-enter pb-8">
+      <div className="surface-panel rounded-[2rem] p-6 md:p-8">
+        <div className="mb-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#b1704e]">
+            Add Recipe
+          </p>
+          <h2 className="mt-2 text-4xl font-semibold text-[#552d1c]">
+            Create New Recipe
+          </h2>
+          <p className="mt-2 max-w-2xl text-[#795241]">
+            Fill in the details below to save your dish to the cookbook.
+          </p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="grid gap-5">
+          <div className="grid gap-4 md:grid-cols-2">
+            {fields.map(({ label, name, type, placeholder }) => (
+              <label key={name} className="block">
+                <span className="mb-1 block text-sm font-medium text-[#7b4f3d]">
+                  {label}
+                </span>
+                <input
+                  type={type}
+                  name={name}
+                  value={form[name]}
+                  onChange={handleChange}
+                  placeholder={placeholder}
+                  className="w-full rounded-2xl border border-[#e6c8b3] bg-white/85 px-4 py-3 text-sm text-[#4a2d21] outline-none focus:border-[#ca7c58] focus:ring-2 focus:ring-[#f2cbb3]"
+                  required
+                />
+              </label>
+            ))}
+          </div>
+
+          <label>
+            <span className="mb-1 block text-sm font-medium text-[#7b4f3d]">
+              Description
+            </span>
+            <textarea
+              name="description"
+              value={form.description}
               onChange={handleChange}
-              className="w-full p-2 rounded bg-white text-black border focus:outline-none focus:ring-2 focus:ring-[#3ABAB4]"
+              rows={4}
+              placeholder="A quick summary of this recipe..."
+              className="w-full rounded-2xl border border-[#e6c8b3] bg-white/85 px-4 py-3 text-sm text-[#4a2d21] outline-none focus:border-[#ca7c58] focus:ring-2 focus:ring-[#f2cbb3]"
               required
             />
-          </div>
-        ))}
-        <button
-          type="submit"
-          className="bg-[#3ABAB4] text-black font-semibold py-2 px-4 rounded hover:bg-[#319e9a] transition"
-        >
-          Add Recipe
-        </button>
-      </form>
-    </div>
+          </label>
+
+          <label>
+            <span className="mb-1 block text-sm font-medium text-[#7b4f3d]">
+              Ingredients (comma separated)
+            </span>
+            <input
+              type="text"
+              name="ingredients"
+              value={form.ingredients}
+              onChange={handleChange}
+              placeholder="Flour, Sugar, Eggs, Cinnamon"
+              className="w-full rounded-2xl border border-[#e6c8b3] bg-white/85 px-4 py-3 text-sm text-[#4a2d21] outline-none focus:border-[#ca7c58] focus:ring-2 focus:ring-[#f2cbb3]"
+              required
+            />
+          </label>
+
+          <label>
+            <span className="mb-1 block text-sm font-medium text-[#7b4f3d]">
+              Preparation Steps (periods or new lines)
+            </span>
+            <textarea
+              name="preparation"
+              value={form.preparation}
+              onChange={handleChange}
+              rows={5}
+              placeholder="Boil pasta. Prepare sauce. Mix and serve."
+              className="w-full rounded-2xl border border-[#e6c8b3] bg-white/85 px-4 py-3 text-sm text-[#4a2d21] outline-none focus:border-[#ca7c58] focus:ring-2 focus:ring-[#f2cbb3]"
+              required
+            />
+          </label>
+
+          <button
+            type="submit"
+            className="w-full rounded-full bg-[#c96843] px-5 py-3 text-sm font-semibold text-white hover:bg-[#a65335] md:w-fit"
+          >
+            Save Recipe
+          </button>
+        </form>
+      </div>
+    </section>
   );
 };
 
