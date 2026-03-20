@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import MainRoutes from "./routes/MainRoutes";
+import Footer from "./pages/Footer";
 
 const App = () => {
   return (
@@ -12,7 +13,7 @@ const App = () => {
 
       <div className="relative mx-auto w-full max-w-6xl px-4 pt-6 md:px-8 md:pt-10">
         <header className="rounded-[2rem] border border-[#f6d8c2] bg-[#fff9f1]/95 p-4 shadow-[0_24px_60px_rgba(127,66,38,0.15)] md:p-6">
-          <div className="mb-5 flex flex-col gap-3 border-b border-[#f5dfce] pb-4 md:flex-row md:items-end md:justify-between">
+          <div className="mb-5 space-y-3 border-b border-[#f5dfce] pb-4">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#b0714f]">
                 Recipe Book
@@ -21,9 +22,9 @@ const App = () => {
                 Cook. Keep. Share.
               </h1>
             </div>
-            <p className="max-w-md text-sm leading-relaxed text-[#8f5d46] md:max-w-sm md:text-right">
-              Your cozy digital kitchen to save favorite dishes and discover new
-              ideas for every meal.
+            <p className="max-w-2xl text-sm leading-relaxed text-[#8f5d46]">
+              Discover recipes from around the world and curate your personal
+              cookbook.
             </p>
           </div>
           <Navbar />
@@ -32,6 +33,8 @@ const App = () => {
         <main className="mt-8 md:mt-10">
           <MainRoutes />
         </main>
+
+        <Footer />
       </div>
     </div>
   );

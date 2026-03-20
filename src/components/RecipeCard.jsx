@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const RecipeCard = ({ recipe }) => {
-  const { id, image, title, chef, cuisine } = recipe;
+  const { id, image, title, cuisine } = recipe;
 
   return (
     <Link
@@ -25,9 +25,6 @@ const RecipeCard = ({ recipe }) => {
         <h3 className="line-clamp-1 text-lg font-semibold text-[#532c1b]">
           {title}
         </h3>
-        <p className="line-clamp-1 text-sm text-[#8a5c47]">
-          By {chef || "Unknown Chef"}
-        </p>
         <span className="inline-block rounded-full border border-[#efd1bc] bg-white/70 px-3 py-1 text-xs font-medium text-[#8f573f]">
           View Details
         </span>

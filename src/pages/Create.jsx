@@ -4,10 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
 const Create = () => {
-  const { recipes, setRecipes } = useContext(RecipeContext);
+  const { addRecipe } = useContext(RecipeContext);
   const [form, setForm] = useState({
     title: "",
-    chef: "",
     cuisine: "",
     description: "",
     ingredients: "",
@@ -37,9 +36,7 @@ const Create = () => {
         .filter(Boolean),
     };
 
-    const updatedRecipes = [...recipes, newRecipe];
-    setRecipes(updatedRecipes);
-    localStorage.setItem("recipes", JSON.stringify(updatedRecipes));
+    addRecipe(newRecipe);
     navigate("/recipes");
   };
 
@@ -49,12 +46,6 @@ const Create = () => {
       name: "title",
       type: "text",
       placeholder: "Spicy Garlic Noodles",
-    },
-    {
-      label: "Chef Name",
-      name: "chef",
-      type: "text",
-      placeholder: "Chef Amira",
     },
     { label: "Cuisine", name: "cuisine", type: "text", placeholder: "Asian" },
     {

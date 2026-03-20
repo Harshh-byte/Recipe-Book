@@ -4,9 +4,19 @@ import { RecipeContext } from "../context/RecipeContext";
 
 const SingleRecipe = () => {
   const { id } = useParams();
-  const { recipes } = useContext(RecipeContext);
+  const { recipes, isLoading } = useContext(RecipeContext);
 
   const recipe = recipes.find((r) => String(r.id) === String(id));
+
+  if (isLoading) {
+    return (
+      <section className="route-enter surface-panel mx-auto mt-10 max-w-3xl rounded-3xl p-10 text-center">
+        <h2 className="text-3xl font-semibold text-[#5f3524]">
+          Loading recipe...
+        </h2>
+      </section>
+    );
+  }
 
   if (!recipe) {
     return (
@@ -58,8 +68,7 @@ const SingleRecipe = () => {
           <h2 className="text-4xl font-semibold text-[#51291a]">
             {recipe.title}
           </h2>
-          <p className="text-[#7a5241]">Created by {recipe.chef}</p>
-          <p className="leading-relaxed text-[#734d3c]">{recipe.description}</p>
+          <p className="text-[#7a5241]">{recipe.description}</p>
         </div>
       </div>
 
