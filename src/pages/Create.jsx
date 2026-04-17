@@ -58,7 +58,7 @@ const Create = () => {
 
   return (
     <section className="route-enter pb-8">
-      <div className="surface-panel rounded-[2rem] p-6 md:p-8">
+      <div className="surface-panel rounded-4xl p-6 md:p-8">
         <div className="mb-6">
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#b1704e]">
             Add Recipe
@@ -101,7 +101,7 @@ const Create = () => {
               onChange={handleChange}
               rows={4}
               placeholder="A quick summary of this recipe..."
-              className="w-full rounded-2xl border border-[#e6c8b3] bg-white/85 px-4 py-3 text-sm text-[#4a2d21] outline-none focus:border-[#ca7c58] focus:ring-2 focus:ring-[#f2cbb3]"
+              className="w-full rounded-2xl border border-[#e6c8b3] bg-white/85 px-4 py-3 text-sm text-[#4a2d21] outline-none focus:border-[#ca7c58] focus:ring-2 focus:ring-[#f2cbb3] resize-none overflow-y-auto custom-scrollbar"
               required
             />
           </label>
@@ -131,7 +131,7 @@ const Create = () => {
               onChange={handleChange}
               rows={5}
               placeholder="Boil pasta. Prepare sauce. Mix and serve."
-              className="w-full rounded-2xl border border-[#e6c8b3] bg-white/85 px-4 py-3 text-sm text-[#4a2d21] outline-none focus:border-[#ca7c58] focus:ring-2 focus:ring-[#f2cbb3]"
+              className="w-full rounded-2xl border border-[#e6c8b3] bg-white/85 px-4 py-3 text-sm text-[#4a2d21] outline-none focus:border-[#ca7c58] focus:ring-2 focus:ring-[#f2cbb3] resize-none overflow-y-auto custom-scrollbar"
               required
             />
           </label>

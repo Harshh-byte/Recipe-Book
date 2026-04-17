@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <section className="route-enter space-y-8 pb-8">
-      <div className="surface-panel rounded-[2rem] p-6 md:p-10">
+      <div className="surface-panel rounded-4xl p-6 md:p-10">
         <div className="grid items-center gap-8 md:grid-cols-2">
           <div>
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.32em] text-[#b37350]">
@@ -37,7 +37,7 @@ const Home = () => {
             <img
               src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80"
               alt="Prepared food on a table"
-              className="h-[330px] w-full rounded-[1.5rem] object-cover shadow-xl"
+              className="h-82.5 w-full rounded-3xl object-cover shadow-xl"
             />
             <div className="absolute -bottom-5 left-5 rounded-2xl border border-[#f0d4be] bg-[#fff9f1]/95 px-4 py-3 shadow-lg">
               <p className="text-xs uppercase tracking-[0.2em] text-[#ab6f4f]">

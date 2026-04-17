@@ -131,7 +131,7 @@ const Recipes = () => {
 
   return (
     <section className="route-enter space-y-6 pb-8">
-      <div className="surface-panel rounded-[2rem] p-6 md:p-8">
+      <div className="surface-panel rounded-4xl p-6 md:p-8">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#b2724f]">
           Recipe Library
         </p>

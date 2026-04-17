@@ -14,7 +14,7 @@ const RecipeCard = ({ recipe }) => {
           alt={title}
           className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
         />
-        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#27130d]/85 to-transparent px-4 py-3">
+        <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-[#27130d]/85 to-transparent px-4 py-3">
           <p className="text-[11px] font-medium uppercase tracking-[0.26em] text-[#ffe0ca]">
             {cuisine || "Cuisine"}
           </p>

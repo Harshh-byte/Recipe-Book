@@ -55,11 +55,11 @@ const SingleRecipe = () => {
 
   return (
     <section className="route-enter space-y-6 pb-8">
-      <div className="surface-panel overflow-hidden rounded-[2rem]">
+      <div className="surface-panel overflow-hidden rounded-4xl">
         <img
           src={recipe.image}
           alt={recipe.title}
-          className="h-72 w-full object-cover md:h-[24rem]"
+          className="h-72 w-full object-cover md:h-96"
         />
         <div className="space-y-4 p-6 md:p-8">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#b1704e]">

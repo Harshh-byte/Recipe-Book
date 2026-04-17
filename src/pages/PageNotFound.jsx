@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const PageNotFound = () => {
   return (
     <section className="route-enter pb-8">
-      <div className="surface-panel mx-auto flex min-h-[50vh] max-w-3xl flex-col items-center justify-center rounded-[2rem] p-8 text-center md:p-12">
+      <div className="surface-panel mx-auto flex min-h-[50vh] max-w-3xl flex-col items-center justify-center rounded-4xl p-8 text-center md:p-12">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#b2724f]">
           Error
         </p>
