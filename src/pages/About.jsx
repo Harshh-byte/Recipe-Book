@@ -1,7 +1,14 @@
+import SEO from "@/components/SEO";
+
 const About = () => {
   return (
     <section className="route-enter space-y-6 pb-8">
-      <div className="surface-panel rounded-[2rem] p-6 md:p-8">
+      <SEO 
+        title="About Us" 
+        description="Learn more about Recipe Book, the digital kitchen companion built for everyday cooks and creative food lovers."
+        keywords="about recipe book, kitchen companion, cooking philosophy"
+      />
+      <div className="surface-panel rounded-4xl p-6 md:p-8">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#b1714f]">
           About Recipe Book
         </p>

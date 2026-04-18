@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { RecipeContext } from "../context/RecipeContext";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+import SEO from "@/components/SEO";
 
 const Create = () => {
   const { addRecipe } = useContext(RecipeContext);
@@ -58,6 +59,11 @@ const Create = () => {
 
   return (
     <section className="route-enter pb-8">
+      <SEO 
+        title="Create Recipe" 
+        description="Share your culinary genius. Create and save your own custom recipes to your personal cookbook."
+        keywords="create recipe, add recipe, cooking, personal cookbook"
+      />
       <div className="surface-panel rounded-4xl p-6 md:p-8">
         <div className="mb-6">
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#b1704e]">

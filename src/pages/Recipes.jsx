@@ -1,6 +1,7 @@
 import RecipeCard from "@/components/RecipeCard";
 import { useContext, useEffect, useState, useMemo } from "react";
 import { RecipeContext } from "@/context/RecipeContext";
+import SEO from "@/components/SEO";
 import {
   fetchMealByName,
   fetchAllAreas,
@@ -131,6 +132,11 @@ const Recipes = () => {
 
   return (
     <section className="route-enter space-y-6 pb-8">
+      <SEO 
+        title="Explore Recipes" 
+        description="Browse our extensive collection of recipes from around the world. Search by name, filter by area, and find your next favorite meal."
+        keywords="browse recipes, meal search, cuisine filter, global food"
+      />
       <div className="surface-panel rounded-4xl p-6 md:p-8">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#b2724f]">
           Recipe Library

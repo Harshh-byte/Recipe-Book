@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 
 const Home = () => {
   return (
     <section className="route-enter space-y-8 pb-8">
+      <SEO 
+        title="Home" 
+        description="Welcome to Recipe Book, your premium culinary organizer. Plan your meals, discover new flavors, and curate your personal cookbook."
+        keywords="recipes, home cooking, meal planning, cookbook, culinary"
+      />
       <div className="surface-panel rounded-4xl p-6 md:p-10">
         <div className="grid items-center gap-8 md:grid-cols-2">
           <div>

@@ -4,12 +4,15 @@ import "./index.css";
 import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import RecipeProvider from './context/RecipeContext.jsx';
+import { HelmetProvider } from 'react-helmet-async';
 
 createRoot(document.getElementById('root')).render(
     <RecipeProvider>
-        <BrowserRouter>
-            <App />
-            <ToastContainer />
-        </BrowserRouter>
+        <HelmetProvider>
+            <BrowserRouter>
+                <App />
+                <ToastContainer />
+            </BrowserRouter>
+        </HelmetProvider>
     </RecipeProvider>
 );

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import { RecipeContext } from "../context/RecipeContext";
+import SEO from "@/components/SEO";
 
 const SingleRecipe = () => {
   const { id } = useParams();
@@ -55,6 +56,12 @@ const SingleRecipe = () => {
 
   return (
     <section className="route-enter space-y-6 pb-8">
+      <SEO 
+        title={recipe.title} 
+        description={recipe.description} 
+        image={recipe.image}
+        keywords={`${recipe.title}, ${recipe.cuisine}, recipe, cooking`}
+      />
       <div className="surface-panel overflow-hidden rounded-4xl">
         <img
           src={recipe.image}

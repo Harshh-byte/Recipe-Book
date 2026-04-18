@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 
 const PageNotFound = () => {
   return (
     <section className="route-enter pb-8">
+      <SEO title="Page Not Found" description="The page you are looking for does not exist." />
       <div className="surface-panel mx-auto flex min-h-[50vh] max-w-3xl flex-col items-center justify-center rounded-4xl p-8 text-center md:p-12">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#b2724f]">
           Error
