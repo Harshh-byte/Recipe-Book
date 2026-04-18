@@ -54,13 +54,30 @@ const SingleRecipe = () => {
         .filter(Boolean)
         .map((step) => step.trim());
 
+  const recipeSchema = {
+    "@context": "https://schema.org/",
+    "@type": "Recipe",
+    name: recipe.title,
+    image: [recipe.image],
+    description: recipe.description,
+    keywords: `${recipe.cuisine}, ${recipe.title}, cooking`,
+    recipeCuisine: recipe.cuisine,
+    recipeIngredient: ingredientsArr,
+    recipeInstructions: preparationArr.map((step, index) => ({
+      "@type": "HowToStep",
+      text: step,
+      position: index + 1,
+    })),
+  };
+
   return (
     <section className="route-enter space-y-6 pb-8">
-      <SEO 
-        title={recipe.title} 
-        description={recipe.description} 
+      <SEO
+        title={recipe.title}
+        description={recipe.description}
         image={recipe.image}
         keywords={`${recipe.title}, ${recipe.cuisine}, recipe, cooking`}
+        schema={recipeSchema}
       />
       <div className="surface-panel overflow-hidden rounded-4xl">
         <img

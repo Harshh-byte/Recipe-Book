@@ -3,8 +3,8 @@ import SEO from "@/components/SEO";
 const About = () => {
   return (
     <section className="route-enter space-y-6 pb-8">
-      <SEO 
-        title="About Us" 
+      <SEO
+        title="About Us"
         description="Learn more about Recipe Book, the digital kitchen companion built for everyday cooks and creative food lovers."
         keywords="about recipe book, kitchen companion, cooking philosophy"
       />

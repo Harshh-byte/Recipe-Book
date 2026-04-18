@@ -2,12 +2,28 @@ import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 
 const Home = () => {
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Recipe Book",
+    url: window.location.origin,
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${window.location.origin}/recipes?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
+  };
+
   return (
     <section className="route-enter space-y-8 pb-8">
-      <SEO 
-        title="Home" 
+      <SEO
+        title="Home"
         description="Welcome to Recipe Book, your premium culinary organizer. Plan your meals, discover new flavors, and curate your personal cookbook."
         keywords="recipes, home cooking, meal planning, cookbook, culinary"
+        schema={websiteSchema}
       />
       <div className="surface-panel rounded-4xl p-6 md:p-10">
         <div className="grid items-center gap-8 md:grid-cols-2">

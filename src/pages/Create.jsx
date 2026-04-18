@@ -59,8 +59,8 @@ const Create = () => {
 
   return (
     <section className="route-enter pb-8">
-      <SEO 
-        title="Create Recipe" 
+      <SEO
+        title="Create Recipe"
         description="Share your culinary genius. Create and save your own custom recipes to your personal cookbook."
         keywords="create recipe, add recipe, cooking, personal cookbook"
       />

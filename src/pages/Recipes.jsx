@@ -130,12 +130,25 @@ const Recipes = () => {
     setCurrentPage((prev) => prev + 1);
   };
 
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: displayedRecipes.map((recipe, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: `${window.location.origin}/recipe/${recipe.id}`,
+      name: recipe.title,
+      image: recipe.image,
+    })),
+  };
+
   return (
     <section className="route-enter space-y-6 pb-8">
-      <SEO 
-        title="Explore Recipes" 
+      <SEO
+        title="Explore Recipes"
         description="Browse our extensive collection of recipes from around the world. Search by name, filter by area, and find your next favorite meal."
         keywords="browse recipes, meal search, cuisine filter, global food"
+        schema={itemListSchema}
       />
       <div className="surface-panel rounded-4xl p-6 md:p-8">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#b2724f]">
